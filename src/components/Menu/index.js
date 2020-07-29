@@ -12,7 +12,7 @@ function Menu(){
         <img className = "Logo" src={Logo} alt="DroidFlix"></img>
       </Link>
 
-      <Button as ={Link} className="Buttonlink" to="/cadastro/Video">
+      <Button as ={Link} className="ButtonLink" to="/cadastro/Video">
         Novo Vídeo
       </Button>
     </nav>
