@@ -3,13 +3,15 @@ import {Link} from 'react-router-dom'
 import PageDefault from '../../../components/PageDefault'
 
 function CadastroCategoria(){
-  const [categorias,setCategorias] = useState(['Teste']);
   const valoresIniciais = {
     nome: '',
     descricao: '',
     cor: '#000',
   }
-  const [values,setValues] = useState('Valor inicial');
+
+  const [categorias,setCategorias] = useState([]);
+  const [values,setValues] = useState(valoresIniciais);
+
 
   function setValue(key, value) {
     setValues({
@@ -20,7 +22,7 @@ function CadastroCategoria(){
 
   function handleChange(infosDoEvento){
     setValue(
-      infosDoEvento.target.getAttribute('name'),
+      infosDoEvento.target.getAttribute('name'), 
       infosDoEvento.target.value
     );
   }
@@ -30,14 +32,13 @@ function CadastroCategoria(){
 
       <form  style={{background: values.cor}} onSubmit = {function handleSubmit(infosDoEvento){
         infosDoEvento.preventDefault();
-        console.log('tentastes enviar o form')
         setCategorias([
           ...categorias,
           values.nome
         ]);
+      setValue(valoresIniciais)
       }}>
         <div>
-
         <label>
           Nome da Categoria:
           <input
@@ -48,19 +49,19 @@ function CadastroCategoria(){
           />
         </label>
         </div>
-        <br></br>
+        
         <div>
         <label>
           Descrição: <br></br>
           <textarea
             type="text"
-            name="descrição"
+            name="descricao"
             value = {values.descricao}
             onChange = {handleChange}
           />
         </label>
         </div>
-        <br></br>
+        
         <div>
         <label>
           Cor: 
