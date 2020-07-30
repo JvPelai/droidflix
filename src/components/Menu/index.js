@@ -8,7 +8,7 @@ import Button from '../Button'
 function Menu(){
   return(
     <nav className="Menu">
-      <Link href="/">
+      <Link to="/">
         <img className = "Logo" src={Logo} alt="DroidFlix"></img>
       </Link>
 
